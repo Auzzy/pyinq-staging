@@ -1,0 +1,112 @@
+BUGS
+
+
+REFACTOR
+- Overhaul the printers structure.
+	- Give the results objects a "print" function.
+	- This function will create and call a Printer() object
+	- Break it into parts based on result object type.
+		- That is, there will be a bunch of printer parts for each type (suites, modules, classes, tests). A printer will select 1 part for each type that will plug in to its overall framework.
+
+- Meld Test and TestData
+	- Can use a wrapper function to pass to the runner
+		- will wrap the print and call
+
+- Why does ExpectedErrorResult not contain the trace?
+
+- ExpectedErrorResult shouldn't subclass AssertResult, at least not directly.
+
+FEATURES
+- Make discover_tests return an empty TestSuiteData if discovery is disabled
+
+- Make fixture objects runnable
+
+- Add a public "run" function to each data object to allow for explicit running. Move all code from __call__ into this function.
+
+- When no tests are detected, ensure nothing is output
+	- or maybe something indicating no tests were detected
+
+- Add a separate --dir-pattern argument for test discovery
+
+- Add a function to retrieve all tests in a flat list
+
+- During test discovery, if any code would fire on test import, grab it and wrap it in its own function, stored in the TestModule object. Run that code before the module is first run during testing.
+
+- In the default printer, print out a list of valid files found by test discovery
+	- path relative to provided test root
+
+- Look into paralellizing test execution
+	- See the Nose plugin: https://nose.readthedocs.org/en/latest/plugins/multiprocess.html
+
+- Flag to automatically rerun ONLY failed tests
+
+- Package level test fixtures
+
+- Knowledge of a test package (TestPackage)
+
+- flag to turn off stdout capturing
+
+- add something for code coverage
+	- maybe 3rd party?
+
+- by default, hide successes. add flag to show them
+
+- assert_exists
+	- Takes an object and a string. Checks to see if the string is a name in the object
+
+- Context manager for assert_raises
+
+- Add test to multiple suites
+
+- Test discovery
+	- Make sure to allow for multiple suite-level fixtures
+		- Only one may be defined per file
+		- They must be independent
+	- Command line arg to specify max depth to discover
+
+- Specify that an entire module is part of a suite
+	- maybe set a field called "__suite__"
+
+- Specify that an entire PACKAGE is part of a suite
+	- use the same field name as for modules, but put it in __init__.py
+
+- Exclude pattern for test discovery
+
+- Command line control
+	- run select modules, classes, and tests from the command line
+	- verbosity (including silent mode)
+	- direct test output to a different location (not stdout)
+
+- Turn command line support into a subparser
+	- Python 2.7 does not allow for optional subparsers. If you define one subparser, you must always call a subparser, which decreases intuitiveness, since the user isn't necessarily expecting command line arguments.
+
+- Handle use of asserts and evals at the module level; that is, outside of functions and classes.
+
+- Time test execution
+	- See the Nose plugin (https://nose.readthedocs.org/en/latest/plugins/prof.html), which uses Python's builtin "hotshot" profiler
+
+- Option to output as XUnit XML (apparent schema: https://gist.github.com/jzelenkov/959290)
+
+- Argument to testClass specifying whether or not all tests in a class are to be treated as tests
+
+- Detect (and report) if 2 functions with the same name have been defined.
+
+MAYBE
+- Introduce some mechanism to specify that artifacts should not be discovered
+	- for packages, some variable in __init__.py
+	- for modules, some global
+	- for classes and tests, some argument to a decorator
+
+- Color code class names beased on success
+
+- Custom error messages
+
+- More specific asserts
+	- assertAlmostEqual
+	- assertGreater
+	- assertGreaterEqual
+	- assertLess
+	- assertLessEqual
+	- assertRegexpMatches
+	- assertItemsEqual
+

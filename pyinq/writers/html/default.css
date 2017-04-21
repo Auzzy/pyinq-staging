@@ -1,0 +1,63 @@
+
+.suite, .module, .class, .test
+{
+	
+}
+
+.section-header
+{
+	font-size:24px;
+	font-weight:bold;
+	margin-bottom:0px;
+}
+
+.result-header
+{
+	font-size:20px;
+	font-weight:bold;
+}
+
+.result
+{
+	margin-bottom:0px;
+}
+
+.assert
+{
+
+}
+
+.status
+{
+
+}
+
+div.assert, div.status
+{
+	display:inline-block;
+}
+
+.pass
+{
+	color:#00CC00;
+}
+
+.fail
+{
+	color:#FF0000;
+}
+
+.error
+{
+	color:#0000FF;
+}
+
+.warning
+{
+	color:#FFBB00;
+}
+
+.indent
+{
+	margin-left:30px;
+}

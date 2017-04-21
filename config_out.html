@@ -1,0 +1,178 @@
+REPORT: Test Report
+
+
+Test: test0
+ERROR
+Traceback (most recent call last):
+  File "assert_tests.py", line 6, in test0
+    assert_true()
+TypeError: assert_true() takes exactly 1 argument (0 given)
+
+Test: test1
+FAILED
+assert_true(True) (line 10): True
+	truth value: True
+assert_true(False) (line 11): False
+	truth value: False
+
+Test: test10
+FAILED
+assert_in(3,[1,1,2,3,5]) (line 62): True
+	collection: [1, 1, 2, 3, 5]
+	element:    3
+assert_in(4,[1,1,2,3,5]) (line 63): False
+	collection: [1, 1, 2, 3, 5]
+	element:    4
+
+Test: test11
+FAILED
+assert_not_in(3,[1,1,2,3,5]) (line 67): False
+	collection: [1, 1, 2, 3, 5]
+	element:    3
+
+Test: test12
+FAILED
+eval_in(3,[1,1,2,3,5]) (line 72): True
+	collection: [1, 1, 2, 3, 5]
+	element:    3
+eval_in(4,[1,1,2,3,5]) (line 73): False
+	collection: [1, 1, 2, 3, 5]
+	element:    4
+eval_not_in(3,[1,1,2,3,5]) (line 74): False
+	collection: [1, 1, 2, 3, 5]
+	element:    3
+eval_not_in(4,[1,1,2,3,5]) (line 75): True
+	collection: [1, 1, 2, 3, 5]
+	element:    4
+
+Test: test13
+FAILED
+eval_is_instance(IOError(),Exception) (line 79): True
+	expected type: Exception
+	object class:  IOError
+eval_is_instance(IOError(),WindowsError) (line 80): False
+	expected type: WindowsError
+	object class:  IOError
+eval_is_not_instance(IOError(),Exception) (line 81): False
+	expected type: Exception
+	object class:  IOError
+eval_is_not_instance(IOError(),WindowsError) (line 82): True
+	expected type: WindowsError
+	object class:  IOError
+
+Test: test14
+PASSED
+assert_is_instance(IOError(),Exception) (line 86): True
+	expected type: Exception
+	object class:  IOError
+assert_is_not_instance(IOError(),WindowsError) (line 87): True
+	expected type: WindowsError
+	object class:  IOError
+
+Test: test15
+FAILED
+assert_is_instance(IOError(),WindowsError) (line 91): False
+	expected type: WindowsError
+	object class:  IOError
+
+Test: test16
+FAILED
+assert_is_not_instance(IOError(),Exception) (line 95): False
+	expected type: Exception
+	object class:  IOError
+
+Test: test17
+FAILED
+assert_true(True) (line 99): True
+	truth value: True
+User induced fail at line 100
+	Test failure
+
+Test: test18
+FAILED
+assert_true(True) (line 105): True
+	truth value: True
+User induced fail at line 106
+	Another test failure
+
+Test: test19
+PASSED
+assert_attrib(list,"append") (line 110): True
+	attrib name: append
+	object class:  type
+assert_not_attrib(list(),"appends") (line 111): True
+	attrib name: appends
+	object class:  list
+
+Test: test2
+FAILED
+assert_true(True) (line 23): True
+	truth value: True
+assert_equal(4,4) (line 24): True
+	expected: 4
+	actual:   4
+assert_false(False) (line 25): True
+	truth value: False
+assert_not_equal(4,4) (line 26): False
+	expected: 4
+	actual:   4
+
+Test: test20
+FAILED
+assert_attrib(list(),"appends") (line 115): False
+	attrib name: appends
+	object class:  list
+
+Test: test21
+FAILED
+assert_not_attrib(list(),"append") (line 119): False
+	attrib name: append
+	object class:  list
+
+Test: test3
+FAILED
+assert_true(True) (line 30): True
+	truth value: True
+assert_equal(4,4) (line 31): True
+	expected: 4
+	actual:   4
+assert_equal(4,5) (line 32): False
+	expected: 5
+	actual:   4
+
+Test: test4
+ERROR
+assert_true(True) (line 37): True
+	truth value: True
+Traceback (most recent call last):
+  File "assert_tests.py", line 38, in test4
+    assert_equal(8+"")
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+Test: test5
+ERROR
+Traceback (most recent call last):
+  File "assert_tests.py", line 42, in test5
+    assert_equal(8+"")
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+Test: test6
+FAILED
+assert 5==6 (line 46): False
+
+Test: test7
+PASSED
+Expected error IOError
+	Occurred at line 50
+
+Test: test8
+FAILED
+Expected error IOError
+	Did not occur
+
+Test: test9
+PASSED
+assert_true("hello") (line 58): True
+	truth value: True
+
+
